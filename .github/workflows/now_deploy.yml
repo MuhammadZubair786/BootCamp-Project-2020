@@ -25,18 +25,9 @@ jobs:
       with: 
         version: 12
 
-    - name: GitHub Action for Yarn
-      uses: Borales/actions-yarn@v2.1.0
-      with:
-        # Yarn command
-        cmd: install # npm install/ yarn install
-        
-    
-    - name: Creating build
-      run: yarn build
-    
+   
     - name: installing surge  
       run: npm install -g surge
     
     - name: deploying on surge
-      run: surge ./build http://bootcamp-project-2020.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+      run: surge http://bootcamp-project-2020.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
